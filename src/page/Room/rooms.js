@@ -5,7 +5,8 @@ class Rooms extends Component{
     constructor(props){
         super(props);
         this.state = {
-            rooms: []
+            rooms: [],
+            totalAmount:''
         }
     }
 
@@ -19,11 +20,22 @@ class Rooms extends Component{
             .catch(error => {
                 alert(error.message);
             })
+
+        axios.get(`http://localhost:8080/category/amount/${this.props.match.params.id}`)
+            .then(response => {
+                this.setState({ totalAmount: response.data.totalAmount })
+            })
+            .catch(error => {
+                alert(error.message);
+            })
     }
+
 
     render(){
         return(
             <div>
+                <h1>Category Rooms</h1>
+                <h3>Total Amount:{this.state.totalAmount} </h3>
                 {this.state.rooms.length > 0 && this.state.rooms.map((item, index) => (
                     <div key={index} className="card mb-3">
                         <div className="p-3">
@@ -35,6 +47,9 @@ class Rooms extends Component{
                     </div>
                 ))}
             </div>
+
+
+
         )
     }
 }
