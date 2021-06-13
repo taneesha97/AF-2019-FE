@@ -65,17 +65,17 @@ class CreateCategory extends Component{
     render(){
         return(
             <div className="container">
-                <h1 >Create Category</h1>
-                <form onSubmit={this.onSubmit}>
+                <h1 data-testid='title-field'>Create Category</h1>
+                <form onSubmit={this.onSubmit} data-testid='form-tag-id'>
                     <div className="mb-3">
                         <label htmlFor="subjectName" className="form-label">Name</label>
-                        <input
-                            type="name"
-                            className="form-control"
-                            id="name"
-                            name="name"
-                            value={this.state.name}
-                            onChange={this.onChange}
+                        <input data-testid='input-field'
+                               type="name"
+                               className="form-control"
+                                id="name"
+                                name="name"
+                                value={this.state.name}
+                                onChange={this.onChange}
                         />
 
                     </div>
@@ -99,7 +99,7 @@ class CreateCategory extends Component{
                             isMulti
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary" >Submit</button>
+                    <button type="submit" className="btn btn-primary" data-testid='submit-btn'>Submit</button>
                 </form>
             </div>
         )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navbar from './navBar/navBar'
+import Navbar from './components/navBar/navBar'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import CreateRoom from "./components/createRoom/createRoom";
 import CreateCategory from "./components/createCategory/createCategory";
